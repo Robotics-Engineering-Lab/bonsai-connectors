@@ -55,7 +55,7 @@ The flag -e in pip is required to install the assets.
 
 ```
 git clone https://github.com/myned-ai/pybullet-gym.git
-cd pybulley-gym]
+cd pybulley-gym
 pip install -e .
 ```
 
