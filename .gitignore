@@ -133,3 +133,6 @@ dmypy.json
 .vscode/settings.json
 .vscode/launch.json
 envs/pybullet/ant/.vscode/settings.json
+
+# Additional libs
+connectors/pybullet-gym/

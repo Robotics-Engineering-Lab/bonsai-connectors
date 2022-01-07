@@ -3,7 +3,7 @@ from typing import Any, Dict
 
 
 from gym_connectors import BonsaiConnector, PyBulletSimulator
-
+from tur10_env import UR10
 log = logging.getLogger("reacher")
 
 
@@ -31,6 +31,34 @@ class Reacher(PyBulletSimulator):
 
         progress = potential - self.prev_potential
         
+        self.bonsai_state = {
+                             "gripper_x": float(observation[0]),
+                             "gripper_y": float(observation[1]),
+                             "gripper_z": float(observation[2]),
+                             "target_x": float(observation[3]),
+                             "target_y": float(observation[4]),
+                             "target_z": float(observation[5]),
+                             "dst_x": float(observation[6]),
+                             "dst_y": float(observation[7]),
+                             "dst_z": float(observation[8]),
+
+                             "rew": self.get_last_reward(),
+                             "episode_rew": self.get_episode_reward(),
+                             "progress": progress}
+        
+        self.prev_potential = potential
+        
+        return self.bonsai_state
+    '''
+    def gym_to_state(self, observation) -> Dict[str, Any]:
+        """ Converts openai environment state to Bonsai state, as defined in inkling
+        """
+        potential = float(self._env.unwrapped.potential)
+        if self.prev_potential is None:
+            self.prev_potential = potential
+
+        progress = potential - self.prev_potential
+        
         self.bonsai_state = {"target_x": float(observation[0]),
                              "target_y": float(observation[1]),
                              "to_target_x": float(observation[2]),
@@ -47,7 +75,7 @@ class Reacher(PyBulletSimulator):
         self.prev_potential = potential
         
         return self.bonsai_state
-
+    '''
     def action_to_gym(self, action: Dict[str, Any]):
         """ Converts Bonsai action type into openai environment action.
         """
@@ -86,11 +114,8 @@ if __name__ == "__main__":
     log = logging.getLogger("reacher")
     log.setLevel(level='INFO')
 
-    # if more information is needed, uncomment this
-    # gymlog = logging.getLogger("GymSimulator")
-    # gymlog.setLevel(level='DEBUG')
 
-    reacher = Reacher()
+    reacher = UR10(True, False)
     connector = BonsaiConnector(reacher)
 
     while connector.run():

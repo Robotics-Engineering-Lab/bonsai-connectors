@@ -9,7 +9,7 @@ import pybullet_data
 import gym
 import numpy as np
 import sys, os
-
+from gym_connectors import BonsaiConnector, PyBulletSimulator
 class UR10(gym.Env):
     observation_space = gym.spaces.Dict(dict(
         desired_goal=gym.spaces.Box(-np.inf, np.inf, shape=(3,), dtype='float32'),
