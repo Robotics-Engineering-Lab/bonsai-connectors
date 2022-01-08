@@ -1,11 +1,11 @@
 import logging
+from os import read
 from typing import Any, Dict
 
 
 from gym_connectors import BonsaiConnector, PyBulletSimulator
 from tur10_env import UR10
 log = logging.getLogger("reacher")
-
 
 class Reacher(PyBulletSimulator):
     """ Implements the methods specific to Hopper environment
@@ -21,6 +21,8 @@ class Reacher(PyBulletSimulator):
         self.bonsai_state = None
 
         super().__init__(iteration_limit, skip_frame)
+    def make_environment(self, headless):
+        self._env = UR10(is_train=False, is_dense=True)
 
     def gym_to_state(self, observation) -> Dict[str, Any]:
         """ Converts openai environment state to Bonsai state, as defined in inkling
@@ -114,8 +116,8 @@ if __name__ == "__main__":
     log = logging.getLogger("reacher")
     log.setLevel(level='INFO')
 
-
-    reacher = UR10(True, False)
+    reacher = Reacher()
+    #reacher = UR10(True, False)
     connector = BonsaiConnector(reacher)
 
     while connector.run():
