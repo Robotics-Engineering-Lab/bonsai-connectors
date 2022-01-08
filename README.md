@@ -37,12 +37,12 @@ Follow instructions: https://docs.microsoft.com/en-us/bonsai/guides/account-setu
 Bonsai Connectors requires two environment variables to be set to be able to connect to Microsoft Bonsai:
 
 **SIM_ACCESS_KEY**. You can copy it from the Account Settings page.
-'''
+
+**SIM_WORKSPACE**. You can find this in the URL after ***/workspaces/*** once you are logged in to the platform.
+```
 export SIM_WORKSPACE="BonsAI workspace ID"
 export SIM_ACCESS_KEY="YOUR_WORKSPACE_ACCESS_KEY"
-'''
-**SIM_WORKSPACE**. You can find this in the URL after ***/workspaces/*** once you are logged in to the platform.
-
+```
 You will need to install support libraries prior to running locally.
 Our environment depend on **microsoft_bonsai_api** package and on **gym_connectors** from this codebase.
 
