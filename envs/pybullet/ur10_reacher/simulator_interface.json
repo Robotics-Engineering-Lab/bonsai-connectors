@@ -18,13 +18,19 @@
       "category": "Struct",
       "fields": [
         {
-          "name": "central_joint_torque",
+          "name": "x_offset",
           "type": {
             "category": "Number"
           }
         },
 		{
-          "name": "elbow_joint_torque",
+          "name": "y_offset",
+          "type": {
+            "category": "Number"
+          }
+        },
+        {
+          "name": "z_offset",
           "type": {
             "category": "Number"
           }

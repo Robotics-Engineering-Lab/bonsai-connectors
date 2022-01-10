@@ -21,17 +21,17 @@ class Reacher(PyBulletSimulator):
 
         super().__init__(iteration_limit, skip_frame)
     def make_environment(self, headless):
-        self._env = UR10(is_train=True, is_dense=True)
+        self._env = UR10(is_train=headless, is_dense=True)
 
     def gym_to_state(self, observation) -> Dict[str, Any]:
         """ Converts openai environment state to Bonsai state, as defined in inkling
         """
-        potential = float(self._env.unwrapped.potential)
+        potential = 0
         if self.prev_potential is None:
             self.prev_potential = potential
 
         progress = potential - self.prev_potential
-        
+        observation = observation["observation"]
         self.bonsai_state = {
                              "gripper_x": float(observation[0]),
                              "gripper_y": float(observation[1]),
@@ -46,42 +46,16 @@ class Reacher(PyBulletSimulator):
                              "rew": self.get_last_reward(),
                              "episode_rew": self.get_episode_reward(),
                              "progress": progress}
-        
         self.prev_potential = potential
         
         return self.bonsai_state
-    '''
-    def gym_to_state(self, observation) -> Dict[str, Any]:
-        """ Converts openai environment state to Bonsai state, as defined in inkling
-        """
-        potential = float(self._env.unwrapped.potential)
-        if self.prev_potential is None:
-            self.prev_potential = potential
-        progress = potential - self.prev_potential
         
-        self.bonsai_state = {"target_x": float(observation[0]),
-                             "target_y": float(observation[1]),
-                             "to_target_x": float(observation[2]),
-                             "to_target_y": float(observation[3]),
-                             "cos_theta": float(observation[4]),
-                             "sin_theta": float(observation[5]),
-                             "theta_velocity": float(observation[6]),
-                             "gama": float(observation[7]),
-                             "gama_velocity": float(observation[8]),
-                             "rew": self.get_last_reward(),
-                             "episode_rew": self.get_episode_reward(),
-                             "progress": progress}
-        
-        self.prev_potential = potential
-        
-        return self.bonsai_state
-    '''
-
     def action_to_gym(self, action: Dict[str, Any]):
         """ Converts Bonsai action type into openai environment action.
         """
 
         # Reacher environment expects an array of actions
+        #print("!!!!!!!!!!!!!!!!!!!!", action)
         return [action['x_offset'], action['y_offset'], action['z_offset']]
 
     def get_state(self) -> Dict[str, Any]:
@@ -102,8 +76,7 @@ class Reacher(PyBulletSimulator):
         """
         lookat = [x, y, z]
 
-        self._env.unwrapped._p.resetDebugVisualizerCamera(
-            distance, yaw, pitch, lookat)
+        #self._env.unwrapped._p.resetDebugVisualizerCamera(distance, yaw, pitch, lookat)
 
 if __name__ == "__main__":
     """ Creates a Reacher environment, passes it to the BonsaiConnector 
@@ -114,7 +87,6 @@ if __name__ == "__main__":
     log.setLevel(level='INFO')
 
     reacher = Reacher()
-    #reacher = UR10(True, False)
     connector = BonsaiConnector(reacher)
 
     while connector.run():
