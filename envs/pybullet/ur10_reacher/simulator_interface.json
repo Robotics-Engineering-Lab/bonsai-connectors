@@ -8,7 +8,7 @@
         {
           "name": "iteration_limit",
           "type": {
-            "category": "Number",
+            "category": "Number.Float32",
             "defaultValue": 0
           }
         }
@@ -20,19 +20,19 @@
         {
           "name": "x_offset",
           "type": {
-            "category": "Number"
+            "category": "Number.Float32"
           }
         },
 		{
           "name": "y_offset",
           "type": {
-            "category": "Number"
+            "category": "Number.Float32"
           }
         },
         {
           "name": "z_offset",
           "type": {
-            "category": "Number"
+            "category": "Number.Float32"
           }
         }
       ]
@@ -43,73 +43,73 @@
         {
           "name": "gripper_x",
           "type": {
-            "category": "Number"
+            "category": "Number.Float32"
           }
         },
         {
           "name": "gripper_y",
           "type": {
-            "category": "Number"
+            "category": "Number.Float32"
           }
         },
         {
           "name": "gripper_z",
           "type": {
-            "category": "Number"
+            "category": "Number.Float32"
           }
         },
         {
           "name": "target_x",
           "type": {
-            "category": "Number"
+            "category": "Number.Float32"
           }
         },
         {
           "name": "target_y",
           "type": {
-            "category": "Number"
+            "category": "Number.Float32"
           }
         },
         {
           "name": "target_z",
           "type": {
-            "category": "Number"
+            "category": "Number.Float32"
           }
         },
         {
           "name": "dst_x",
           "type": {
-            "category": "Number"
+            "category": "Number.Float32"
           }
         },
         {
           "name": "dst_y",
           "type": {
-            "category": "Number"
+            "category": "Number.Float32"
           }
         },
         {
           "name": "dst_z",
           "type": {
-            "category": "Number"
+            "category": "Number.Float32"
           }
         },
         {
           "name": "rew",
           "type": {
-            "category": "Number"
+            "category": "Number.Float32"
           }
         },
         {
           "name": "episode_rew",
           "type": {
-            "category": "Number"
+            "category": "Number.Float32"
           }
         },
         {
           "name": "progress",
           "type": {
-            "category": "Number"
+            "category": "Number.Float32"
           }
         }
       ]

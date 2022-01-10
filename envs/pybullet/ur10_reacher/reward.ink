@@ -4,18 +4,18 @@ using Math
 
 # Type that represents the per-iteration state returned by simulator
 type SimState {
-    gripper_x:number,
-    gripper_y:number,
-    gripper_z:number,
-    target_x:number,
-    target_y:number,
-    target_z:number,
-    dst_x:number,
-    dst_y:number,
-    dst_z:number,
-    rew:number,
-    episode_rew:number,
-    progress:number
+    gripper_x:Number.Float32,
+    gripper_y:Number.Float32,
+    gripper_z:Number.Float32,
+    target_x:Number.Float32,
+    target_y:Number.Float32,
+    target_z:Number.Float32,
+    dst_x:Number.Float32,
+    dst_y:Number.Float32,
+    dst_z:Number.Float32,
+    rew:Number.Float32,
+    episode_rew:Number.Float32,
+    progress:Number.Float32
 
 }
 
@@ -25,22 +25,22 @@ type SimConfig{
 }
 # State that represents the input to the policy
 type ObservableState {
-	gripper_x:number,
-    gripper_y:number,
-    gripper_z:number,
-    target_x:number,
-    target_y:number,
-    target_z:number,
-    dst_x:number,
-    dst_y:number,
-    dst_z:number
+	gripper_x:Number.Float32,
+    gripper_y:Number.Float32,
+    gripper_z:Number.Float32,
+    target_x:Number.Float32,
+    target_y:Number.Float32,
+    target_z:Number.Float32,
+    dst_x:Number.Float32,
+    dst_y:Number.Float32,
+    dst_z:Number.Float32
 }
 
 # Type that represents the per-iteration action accepted by the simulator
 type SimAction {
-    x_offset:number,
-    y_offset:number,
-    z_offset:number
+    x_offset:Number.Float32,
+    y_offset:Number.Float32,
+    z_offset:Number.Float32
 
 }
 

@@ -45,7 +45,6 @@ if __name__ == '__main__':
             reacher.episode_start()
             state = reacher.get_state()
             
-            reacher.initialize_camera(distance=1, yaw=30, pitch=-40)
 
             while True:
                 # get the action from the agent (based on the current state)
