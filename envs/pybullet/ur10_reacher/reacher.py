@@ -11,7 +11,6 @@ class Reacher(PyBulletSimulator):
     """ Implements the methods specific to Hopper environment
     """
 
-    environment_name = 'ReacherPyBulletEnv-v0'  # Environment name, from openai-gym
 
     def __init__(self, iteration_limit=200, skip_frame=1):
         """ Initializes the Reacher environment
@@ -22,7 +21,7 @@ class Reacher(PyBulletSimulator):
 
         super().__init__(iteration_limit, skip_frame)
     def make_environment(self, headless):
-        self._env = UR10(is_train=False, is_dense=True)
+        self._env = UR10(is_train=True, is_dense=True)
 
     def gym_to_state(self, observation) -> Dict[str, Any]:
         """ Converts openai environment state to Bonsai state, as defined in inkling
@@ -43,7 +42,7 @@ class Reacher(PyBulletSimulator):
                              "dst_x": float(observation[6]),
                              "dst_y": float(observation[7]),
                              "dst_z": float(observation[8]),
-
+                            
                              "rew": self.get_last_reward(),
                              "episode_rew": self.get_episode_reward(),
                              "progress": progress}
@@ -58,7 +57,6 @@ class Reacher(PyBulletSimulator):
         potential = float(self._env.unwrapped.potential)
         if self.prev_potential is None:
             self.prev_potential = potential
-
         progress = potential - self.prev_potential
         
         self.bonsai_state = {"target_x": float(observation[0]),
@@ -78,14 +76,13 @@ class Reacher(PyBulletSimulator):
         
         return self.bonsai_state
     '''
+
     def action_to_gym(self, action: Dict[str, Any]):
         """ Converts Bonsai action type into openai environment action.
         """
-        central_joint_torque = action['central_joint_torque']
-        elbow_joint_torque = action['elbow_joint_torque']
 
         # Reacher environment expects an array of actions
-        return [central_joint_torque, elbow_joint_torque]
+        return [action['x_offset'], action['y_offset'], action['z_offset']]
 
     def get_state(self) -> Dict[str, Any]:
         """ Returns the current state of the environment

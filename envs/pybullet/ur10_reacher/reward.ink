@@ -4,18 +4,19 @@ using Math
 
 # Type that represents the per-iteration state returned by simulator
 type SimState {
-	target_x:number,
-	target_y:number,
-	to_target_x:number,
-	to_target_y:number,
-	cos_theta:number<-1..1>,
-	sin_theta:number<-1..1>,
-	theta_velocity:number,
-	gama:number,
-    gama_velocity:number,
+    gripper_x:number,
+    gripper_y:number,
+    gripper_z:number,
+    target_x:number,
+    target_y:number,
+    target_z:number,
+    dst_x:number,
+    dst_y:number,
+    dst_z:number,
     rew:number,
     episode_rew:number,
     progress:number
+
 }
 
 
@@ -24,21 +25,23 @@ type SimConfig{
 }
 # State that represents the input to the policy
 type ObservableState {
-	target_x:number,
-	target_y:number,
-	to_target_x:number,
-	to_target_y:number,
-	cos_theta:number<-1..1>,
-	sin_theta:number<-1..1>,
-	theta_velocity:number,
-	gama:number,
-    gama_velocity:number
+	gripper_x:number,
+    gripper_y:number,
+    gripper_z:number,
+    target_x:number,
+    target_y:number,
+    target_z:number,
+    dst_x:number,
+    dst_y:number,
+    dst_z:number
 }
 
 # Type that represents the per-iteration action accepted by the simulator
 type SimAction {
-    central_joint_torque: number<-1.0 .. 1.0>,
-	elbow_joint_torque: number<-1.0 .. 1.0>
+    x_offset:number,
+    y_offset:number,
+    z_offset:number
+
 }
 
 # Define a concept graph with a single concept
@@ -57,11 +60,11 @@ graph (input: ObservableState): SimAction {
             reward GetReward
 
             training {
-                EpisodeIterationLimit: 200
+                EpisodeIterationLimit: 500
             }
             lesson walking{
               scenario {
-                    episode_iteration_limit: 200
+                    episode_iteration_limit: 500
                 }
             }
         }

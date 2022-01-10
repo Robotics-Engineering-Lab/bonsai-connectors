@@ -35,6 +35,24 @@
       "category": "Struct",
       "fields": [
         {
+          "name": "gripper_x",
+          "type": {
+            "category": "Number"
+          }
+        },
+        {
+          "name": "gripper_y",
+          "type": {
+            "category": "Number"
+          }
+        },
+        {
+          "name": "gripper_z",
+          "type": {
+            "category": "Number"
+          }
+        },
+        {
           "name": "target_x",
           "type": {
             "category": "Number"
@@ -47,43 +65,25 @@
           }
         },
         {
-          "name": "to_target_x",
+          "name": "target_z",
           "type": {
             "category": "Number"
           }
         },
         {
-          "name": "to_target_y",
+          "name": "dst_x",
           "type": {
             "category": "Number"
           }
         },
         {
-          "name": "cos_theta",
+          "name": "dst_y",
           "type": {
             "category": "Number"
           }
         },
         {
-          "name": "sin_theta",
-          "type": {
-            "category": "Number"
-          }
-        },
-        {
-          "name": "theta_velocity",
-          "type": {
-            "category": "Number"
-          }
-        },
-        {
-          "name": "gamma",
-          "type": {
-            "category": "Number"
-          }
-        },
-        {
-          "name": "gama_velocity",
+          "name": "dst_z",
           "type": {
             "category": "Number"
           }
