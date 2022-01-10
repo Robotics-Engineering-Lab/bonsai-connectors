@@ -18,15 +18,16 @@ RUN pip3 install -U setuptools \
   && cd pybullet-gym \
   && pip3 install -e . 
 
+COPY envs/pybullet/ur10_reacher/3d_models_main/ /sim/3d_models_main
+
 # Set up the simulator
 WORKDIR /sim
 
 # Copy simulator files to /sim
 COPY envs/pybullet/ur10_reacher/reacher.py \
      envs/pybullet/ur10_reacher/simulator_interface.json \
-     envs/pybullet/ur10_reacher/3d_models_main \
+     envs/pybullet/ur10_reacher/tur10_env.py \
      /sim/ 
-
 
 # This will be the command to run the simulator
 CMD ["python", "reacher.py", "--headless", "--verbose"]
