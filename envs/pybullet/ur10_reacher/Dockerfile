@@ -24,6 +24,7 @@ WORKDIR /sim
 # Copy simulator files to /sim
 COPY envs/pybullet/ur10_reacher/reacher.py \
      envs/pybullet/ur10_reacher/simulator_interface.json \
+     envs/pybullet/ur10_reacher/3d_models_main \
      /sim/ 
 
 
