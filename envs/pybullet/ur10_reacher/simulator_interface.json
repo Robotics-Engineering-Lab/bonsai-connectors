@@ -93,24 +93,6 @@
           "type": {
             "category": "Number.Float32"
           }
-        },
-        {
-          "name": "rew",
-          "type": {
-            "category": "Number.Float32"
-          }
-        },
-        {
-          "name": "episode_rew",
-          "type": {
-            "category": "Number.Float32"
-          }
-        },
-        {
-          "name": "progress",
-          "type": {
-            "category": "Number.Float32"
-          }
         }
       ]
     }
