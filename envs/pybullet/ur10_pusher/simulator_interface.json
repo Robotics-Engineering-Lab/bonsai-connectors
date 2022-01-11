@@ -1,0 +1,172 @@
+{
+  "name": "pusher_simulator",
+  "timeout": 60,
+  "description": {
+    "config": {
+      "category": "Struct",
+      "fields": [
+        {
+          "name": "iteration_limit",
+          "type": {
+            "category": "Number.Float32",
+            "defaultValue": 0
+          }
+        }
+      ]
+    },
+    "action": {
+      "category": "Struct",
+      "fields": [
+        {
+          "name": "x_offset",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "y_offset",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "z_offset",
+          "type": {
+            "category": "Number.Float32"
+          }
+        }
+      ]
+    },
+    "state": {
+      "category": "Struct",
+      "fields": [
+        {
+          "name": "gripper_x",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "gripper_y",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "gripper_z",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "gripper_vel_x",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "gripper_vel_y",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "gripper_vel_z",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "target_x",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "target_y",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "target_z",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "object_x",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "object_y",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "object_z",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "object_vel_x",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "object_vel_y",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "object_vel_z",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "dst_ot_x",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "dst_ot_y",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "dst_ot_z",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "dst_og_x",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "dst_og_y",
+          "type": {
+            "category": "Number.Float32"
+          }
+        },
+        {
+          "name": "dst_og_z",
+          "type": {
+            "category": "Number.Float32"
+          }
+        }
+      ]
+    }
+  }
+}
