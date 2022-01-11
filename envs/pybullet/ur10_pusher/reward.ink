@@ -74,9 +74,7 @@ type ObservableState {
 # Type that represents the per-iteration action accepted by the simulator
 type SimAction {
     x_offset:Number.Float32,
-    y_offset:Number.Float32,
-    z_offset:Number.Float32
-
+    y_offset:Number.Float32
 }
 
 # Define a concept graph with a single concept

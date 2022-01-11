@@ -50,7 +50,7 @@ class Pusher(PyBulletSimulator):
         """
         
         # Pusher environment expects an array of actions
-        return [action['x_offset'], action['y_offset'], action['z_offset']]
+        return [action['x_offset'], action['y_offset']]
 
     def get_state(self) -> Dict[str, Any]:
         """ Returns the current state of the environment

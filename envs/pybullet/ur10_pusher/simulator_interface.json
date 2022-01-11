@@ -28,12 +28,6 @@
           "type": {
             "category": "Number.Float32"
           }
-        },
-        {
-          "name": "z_offset",
-          "type": {
-            "category": "Number.Float32"
-          }
         }
       ]
     },
